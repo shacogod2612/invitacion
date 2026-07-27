@@ -1,0 +1,453 @@
+/* ============================================================
+   1. RESET Y BASE
+   ============================================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #050305; 
+  color: #ffffff;
+  font-family: 'Special Elite', monospace, sans-serif;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative; 
+  overflow-x: hidden; 
+}
+
+/* ============================================================
+   2. FONDOS Y EFECTOS ANIMADOS (Fondo)
+   ============================================================ */
+.cosmic-glow {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle at 50% 50%, #2a0a2a, transparent 70%);
+  filter: blur(50px);
+  opacity: 0.5;
+  z-index: -1;
+  animation: cosmicPulse 15s ease-in-out infinite alternate;
+}
+
+.stars-layer-1 {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: -1;
+  background: transparent;
+  box-shadow: 
+    10vw 10vh #fff, 20vw 30vh #ff69b4, 30vw 50vh #fff, 
+    40vw 70vh #ff69b4, 50vw 90vh #fff, 60vw 10vh #ff69b4,
+    70vw 30vh #fff, 80vw 50vh #ff69b4, 90vw 70vh #fff,
+    15vw 85vh #ff69b4, 25vw 5vh #fff, 35vw 25vh #ff69b4,
+    45vw 45vh #fff, 55vw 65vh #ff69b4, 65vw 85vh #fff, 75vw 5vh #ff69b4, 85vw 25vh #fff, 95vw 45vh #ff69b4;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  animation: starsFall 20s linear infinite;
+}
+
+.stars-layer-2 {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: -1;
+  background: transparent;
+  box-shadow: 
+    5vw 25vh 2px #fff, 15vw 45vh 2px #ff69b4, 25vw 65vh 2px #fff, 
+    35vw 85vh 2px #ff69b4, 45vw 15vh 2px #fff, 55vw 35vh 2px #ff69b4,
+    65vw 55vh 2px #fff, 75vw 75vh 2px #ff69b4, 85vw 95vh 2px #fff,
+    95vw 15vh 2px #ff69b4, 5vw 95vh 2px #fff, 50vw 50vh 2px #ff69b4;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  animation: starsFall 40s linear infinite;
+}
+
+.glitter-shower {
+  position: fixed;
+  top: -10vh; left: 0; width: 100%; height: 110vh;
+  z-index: -1;
+  background: transparent;
+  background-image: 
+    radial-gradient(1px 1px at 10% 10%, #fff, transparent),
+    radial-gradient(1px 1px at 20% 30%, #ff69b4, transparent),
+    radial-gradient(1px 1px at 30% 50%, #fff, transparent),
+    radial-gradient(2px 2px at 40% 70%, #ff69b4, transparent),
+    radial-gradient(1px 1px at 50% 90%, #fff, transparent),
+    radial-gradient(2px 2px at 60% 10%, #ff69b4, transparent),
+    radial-gradient(1px 1px at 70% 30%, #fff, transparent),
+    radial-gradient(1px 1px at 80% 50%, #ff69b4, transparent),
+    radial-gradient(2px 2px at 90% 70%, #fff, transparent);
+  background-size: 200px 200px;
+  animation: glitterFall 8s linear infinite;
+  opacity: 0.8;
+}
+
+/* ============================================================
+   3. CONTENEDOR PRINCIPAL & BOLA DISCO
+   ============================================================ */
+.mobile-container {
+  width: 100%;
+  max-width: 420px;
+  background-color: rgba(26, 26, 26, 0.9); 
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
+  box-shadow: 0 0 35px rgba(255, 105, 180, 0.5); 
+  padding: 20px 15px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1; 
+}
+
+.disco-ball-bg {
+  position: absolute;
+  top: -40px; 
+  left: -40px; 
+  width: 170px;
+  height: 170px;
+  z-index: 1; 
+  pointer-events: none;
+  filter: drop-shadow(0 0 15px rgba(255, 20, 147, 0.6));
+  animation: discoRotateGlow 4s ease-in-out infinite alternate;
+}
+
+/* ============================================================
+   4. TÍTULOS Y ANIMACIÓN DE LETRAS (CORREGIDO)
+   ============================================================ */
+.title-happy,
+.title-birthday {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.title-happy {
+  font-family: 'Rubik Glitch', cursive, sans-serif;
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  color: #fff;
+  text-shadow: 2px 2px #ff69b4;
+  margin-top: 10px;
+}
+
+.title-birthday {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 2.5rem;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+/* Forzar inline-block en los spans para permitir translateY y rotate */
+.title-happy span,
+.title-birthday span {
+  display: inline-block !important;
+  animation: letterFloat 2s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+/* ============================================================
+   5. SECCIONES Y COMPONENTES
+   ============================================================ */
+.date-text {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.btn-rsvp {
+  display: inline-block;
+  background: linear-gradient(45deg, #ff69b4, #da70d6);
+  color: #fff;
+  font-family: 'Permanent Marker', cursive;
+  padding: 12px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+  margin: 15px 0;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-rsvp:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.6);
+}
+
+.profiles-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 25px 0;
+}
+
+.profile-card {
+  width: 45%;
+  position: relative;
+}
+
+.profile-name {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.2rem;
+  margin-bottom: 2px;
+}
+
+.profile-age {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ff69b4;
+}
+
+.profile-img-wrapper {
+  position: relative;
+  margin-top: 10px;
+}
+
+
+.profile-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+hr.divider {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #ff69b4, transparent);
+  margin: 30px 0;
+}
+
+.section-title {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.map-box {
+  width: 100%;
+  height: 180px;
+  background-color: #333;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  border: 2px solid #555;
+}
+
+.map-box iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.btn-link {
+  color: #ff69b4;
+  font-family: 'Permanent Marker', cursive;
+  text-decoration: underline;
+  font-size: 1.2rem;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.wishlist-list {
+  list-style-type: disc;
+  text-align: left;
+  display: inline-block;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 10px 0 20px 0;
+}
+
+.player-card {
+  background-color: #222;
+  border-radius: 12px;
+  padding: 15px;
+  margin: 20px 0;
+  border: 1px solid #444;
+}
+
+.player-title {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.player-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.play-btn {
+  width: 45px;
+  height: 45px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: transform 0.1s;
+}
+
+.play-btn:active {
+  transform: scale(0.95);
+}
+
+.qr-box {
+  width: 180px;
+  height: 180px;
+  border: 3px dashed #ff69b4;
+  border-radius: 12px;
+  margin: 15px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #222;
+}
+
+.qr-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.dresscode-text {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.1rem;
+  color: #ddd;
+  margin: 15px 0;
+}
+
+.highlight-pink {
+  color: #ff69b4;
+}
+
+/* ============================================================
+   6. ANIMACIONES (@KEYFRAMES)
+   ============================================================ */
+@keyframes cosmicPulse {
+  0% { background-color: #070507; opacity: 0.4; }
+  50% { background-color: #020102; opacity: 0.6; }
+  100% { background-color: #070207; opacity: 0.3; }
+}
+
+@keyframes starsFall {
+  from { transform: translateY(0); }
+  to { transform: translateY(100vh); }
+}
+
+@keyframes glitterFall {
+  from { background-position: 0 0; }
+  to { background-position: 100px 800px; }
+}
+
+@keyframes discoRotateGlow {
+  0% {
+    transform: rotate(-5deg) scale(1);
+    filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.5));
+  }
+  100% {
+    transform: rotate(5deg) scale(1.03);
+    filter: drop-shadow(0 0 22px rgba(255, 20, 147, 0.9));
+  }
+}
+
+@keyframes letterFloat {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-6px) rotate(-4deg) scale(1.05);
+  }
+  66% {
+    transform: translateY(3px) rotate(3deg);
+  }
+  100% {
+    transform: translateY(-8px) rotate(-2deg);
+  }
+}
+/* ============================================================
+   CONTADOR REGRESIVO (COUNTDOWN Y2K)
+   ============================================================ */
+.countdown-container {
+  background: rgba(20, 20, 20, 0.8);
+  border: 2px dashed #ff69b4;
+  border-radius: 12px;
+  padding: 12px 10px;
+  margin: 15px 0 20px 0;
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+}
+
+.countdown-title {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 0.95rem;
+  color: #ff69b4;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+}
+
+.countdown-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.time-card {
+  background: #000;
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 6px 8px;
+  min-width: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: inset 0 0 8px rgba(255, 105, 180, 0.2);
+}
+
+.time-card span {
+  font-family: 'Special Elite', monospace;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 5px #ff69b4;
+  line-height: 1;
+}
+
+.time-card small {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 0.65rem;
+  color: #aaa;
+  margin-top: 4px;
+}
+
+.time-colon {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ff69b4;
+  animation: colonBlink 1s infinite;
+}
+
+@keyframes colonBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}

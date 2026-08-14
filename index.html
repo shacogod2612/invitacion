@@ -5,27 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cumpleaños Fernando & Massiel</title>
   
-  <!-- Fuentes estilo Y2K / Manuscrito / Display desde Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Rubik+Glitch&family=Special+Elite&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/stilos.css">
-  <!-- Estilos CSS -->
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- ESTAS SON LAS NUEVAS CAPAS DE ANIMACIÓN PARA EL FONDO -->
+    
   <div class="stars-layer-1"></div>
   <div class="stars-layer-2"></div>
   <div class="glitter-shower"></div>
   <div class="cosmic-glow"></div>
   <div class="mobile-container">
 
-  <!-- BOLA DISCO EN LA ESQUINA (POR DETRÁS DEL TEXTO) -->
 <svg class="disco-ball-bg" viewBox="0 0 200 200">
   <defs>
-    <!-- Gradiente para el cuerpo 3D rosado/magenta -->
+  
     <radialGradient id="discoGrad" cx="35%" cy="35%" r="65%">
       <stop offset="0%" stop-color="#ffb6c1" />
       <stop offset="30%" stop-color="#ff1493" />
@@ -34,27 +32,25 @@
     </radialGradient>
   </defs>
 
-  <!-- Esfera base -->
   <circle cx="100" cy="100" r="95" fill="url(#discoGrad)" />
 
-  <!-- Cuadrícula 3D (Líneas horizontales curvas) -->
   <path d="M10,100 Q100,30 190,100 Q100,170 10,100 Z" fill="none" stroke="#ffffff" stroke-width="1.8" opacity="0.8"/>
   <path d="M15,70 Q100,10 185,70 Q100,130 15,70 Z" fill="none" stroke="#ffffff" stroke-width="1.8" opacity="0.8"/>
   <path d="M30,45 Q100,-5 170,45 Q100,95 30,45 Z" fill="none" stroke="#ffffff" stroke-width="1.8" opacity="0.8"/>
   <path d="M15,130 Q100,70 185,130 Q100,190 15,130 Z" fill="none" stroke="#ffffff" stroke-width="1.8" opacity="0.8"/>
   <path d="M30,155 Q100,105 170,155 Q100,205 30,155 Z" fill="none" stroke="#ffffff" stroke-width="1.8" opacity="0.8"/>
 
-  <!-- Cuadrícula 3D (Líneas verticales curvas) -->
+
   <path d="M100,5 Q30,100 100,195 Q170,100 100,5 Z" fill="none" stroke="#ffffff" stroke-width="1.8" opacity="0.8"/>
   <path d="M100,5 Q60,100 100,195 Q140,100 100,5 Z" fill="none" stroke="#ffffff" stroke-width="1.8" opacity="0.8"/>
   <line x1="100" y1="5" x2="100" y2="195" stroke="#ffffff" stroke-width="1.8" opacity="0.8"/>
 
-  <!-- Destello de estrella en el área rosada brillante -->
+
   <path d="M60,60 L60,40 L60,60 L40,60 L60,60 L60,80 L60,60 L80,60 Z" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
   <circle cx="60" cy="60" r="4" fill="#ffffff" />
 </svg>
 
-    <!-- CABECERA -->
+    
     <div class="title-happy">HAPPY</div>
     <div class="title-birthday">BIRTHDAY</div>
 
@@ -63,11 +59,11 @@
       10:00 PM.
     </div>
 
-    <!-- BOTÓN RSVP SUPERIOR -->
+    
     <a href="https://wa.me/51910782436" class="btn-rsvp" target="_blank">
       CONFIRMAR ASISTENCIA
     </a>
-    <!-- CONTADOR REGRESIVO Y2K -->
+   
 <div class="countdown-container">
   <div class="countdown-title">TIEMPO RESTANTE</div>
   <div class="countdown-box">
@@ -92,24 +88,22 @@
     </div>
   </div>
 </div>
-    <!-- CUMPLEAÑEROS -->
+    
     <div class="profiles-container">
-      <!-- Fernando -->
+      
       <div class="profile-card">
         <div class="profile-name">FERNANDO</div>
         <div class="profile-age">21</div>
         <div class="profile-img-wrapper">
-          <!-- Reemplaza con la foto de Fernando -->
           <img src="img/fernando2.png" class="profile-img" alt="Fernando">
         </div>
       </div>
 
-      <!-- Massiel -->
+    
       <div class="profile-card">
         <div class="profile-name">MASSIEL</div>
         <div class="profile-age">22</div>
         <div class="profile-img-wrapper">
-          <!-- Reemplaza con la foto de Massiel -->
           <img src="img/massiel2.png" class="profile-img" alt="Massiel">
         </div>
       </div>
@@ -117,7 +111,7 @@
 
     <hr class="divider">
 
-    <!-- SECCIÓN DIRECCIÓN -->
+
     <div class="section-title">DIRECCIÓN</div>
     <div class="map-box">
       <iframe 
@@ -131,9 +125,8 @@
     </div>
     <a href="https://www.google.com/maps/place/Kalasasaya+1077,+San+Juan+de+Lurigancho+15427/@-11.9877017,-76.9942697,17z" target="_blank" class="btn-link">Ver en Google Maps</a>    
 
-<hr class="divider">
+    <hr class="divider">
 
-    <!-- WISHLIST -->
     <div class="section-title">WISHLIST</div>
     <ul class="wishlist-list">
       <li>Squishy</li>
@@ -145,32 +138,15 @@
 
     <hr class="divider">
 
-    <!-- PLAYLIST -->
-    <a href="https://spotify.com" target="_blank" class="btn-link" style="font-size:1.1rem;">
-      Link de la playlist de la fiesta
-    </a>
-    
-    <div class="player-card">
-      <div class="player-title">Fiesta Y2K - Mix</div>
-      <div class="player-controls">
-        <button class="player-btn" id="prevBtn">⏮</button>
-        <button class="play-btn" id="playBtn">▶</button>
-        <button class="player-btn" id="nextBtn">⏭</button>
-      </div>
-    </div>
-    <audio id="audioPlayer" src="music/fiesta.mp3" preload="auto"></audio>
-    <hr class="divider">
-
-    <!-- SECCIÓN YAPE / DRESSCODE -->
     <div class="section-title">YAPE</div>
     <div class="qr-box">
-      <!-- Reemplaza con la imagen del QR real -->
       <img src="img/yape.jpeg" alt="QR Yape">
     </div>
 
     <div class="dresscode-text">
       DRESSCODE:<br>
-      <span class="highlight-pink">AÚN NO SÉ</span>
+      <span class="highlight-pink">Con trago en la mano</span>
+      <img src="/img/nalgon.jpg" alt="Nailong borracho">
     </div>
 
     <!-- BOTÓN RSVP INFERIOR -->

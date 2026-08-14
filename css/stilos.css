@@ -339,16 +339,24 @@ hr.divider {
 
 .dresscode-text {
   font-family: 'Permanent Marker', cursive;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   color: #ddd;
   margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
-/* Cambiado de rosa a destacado plateado/platino */
-.highlight-pink {
-  color: #e5e4e2;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+.dresscode-text img {
+  width: 100%;
+  max-width: 150px; 
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid #4b5563;
+  box-shadow: 0 0 15px rgba(225, 225, 225, 0.2);
 }
+
 
 /* ============================================================
    6. ANIMACIONES (@KEYFRAMES)

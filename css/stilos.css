@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: #050305; 
+  background-color: #08080a; 
   color: #ffffff;
   font-family: 'Special Elite', monospace, sans-serif;
   display: flex;
@@ -24,7 +24,8 @@ body {
 .cosmic-glow {
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
-  background: radial-gradient(circle at 50% 50%, #2a0a2a, transparent 70%);
+  /* Cambiado de magenta a un destello plateado profundo */
+  background: radial-gradient(circle at 50% 50%, #2e3440, transparent 70%);
   filter: blur(50px);
   opacity: 0.5;
   z-index: -1;
@@ -36,12 +37,13 @@ body {
   top: 0; left: 0; width: 100%; height: 100%;
   z-index: -1;
   background: transparent;
+  /* Alterna entre blanco y plateado brillante (#e5e4e2 / #c0c0c0) */
   box-shadow: 
-    10vw 10vh #fff, 20vw 30vh #ff69b4, 30vw 50vh #fff, 
-    40vw 70vh #ff69b4, 50vw 90vh #fff, 60vw 10vh #ff69b4,
-    70vw 30vh #fff, 80vw 50vh #ff69b4, 90vw 70vh #fff,
-    15vw 85vh #ff69b4, 25vw 5vh #fff, 35vw 25vh #ff69b4,
-    45vw 45vh #fff, 55vw 65vh #ff69b4, 65vw 85vh #fff, 75vw 5vh #ff69b4, 85vw 25vh #fff, 95vw 45vh #ff69b4;
+    10vw 10vh #fff, 20vw 30vh #c0c0c0, 30vw 50vh #fff, 
+    40vw 70vh #e5e4e2, 50vw 90vh #fff, 60vw 10vh #c0c0c0,
+    70vw 30vh #fff, 80vw 50vh #e5e4e2, 90vw 70vh #fff,
+    15vw 85vh #c0c0c0, 25vw 5vh #fff, 35vw 25vh #e5e4e2,
+    45vw 45vh #fff, 55vw 65vh #c0c0c0, 65vw 85vh #fff, 75vw 5vh #e5e4e2, 85vw 25vh #fff, 95vw 45vh #c0c0c0;
   width: 2px;
   height: 2px;
   border-radius: 50%;
@@ -54,10 +56,10 @@ body {
   z-index: -1;
   background: transparent;
   box-shadow: 
-    5vw 25vh 2px #fff, 15vw 45vh 2px #ff69b4, 25vw 65vh 2px #fff, 
-    35vw 85vh 2px #ff69b4, 45vw 15vh 2px #fff, 55vw 35vh 2px #ff69b4,
-    65vw 55vh 2px #fff, 75vw 75vh 2px #ff69b4, 85vw 95vh 2px #fff,
-    95vw 15vh 2px #ff69b4, 5vw 95vh 2px #fff, 50vw 50vh 2px #ff69b4;
+    5vw 25vh 2px #fff, 15vw 45vh 2px #d1d5db, 25vw 65vh 2px #fff, 
+    35vw 85vh 2px #c0c0c0, 45vw 15vh 2px #fff, 55vw 35vh 2px #d1d5db,
+    65vw 55vh 2px #fff, 75vw 75vh 2px #c0c0c0, 85vw 95vh 2px #fff,
+    95vw 15vh 2px #d1d5db, 5vw 95vh 2px #fff, 50vw 50vh 2px #c0c0c0;
   width: 4px;
   height: 4px;
   border-radius: 50%;
@@ -71,13 +73,13 @@ body {
   background: transparent;
   background-image: 
     radial-gradient(1px 1px at 10% 10%, #fff, transparent),
-    radial-gradient(1px 1px at 20% 30%, #ff69b4, transparent),
+    radial-gradient(1px 1px at 20% 30%, #e5e4e2, transparent),
     radial-gradient(1px 1px at 30% 50%, #fff, transparent),
-    radial-gradient(2px 2px at 40% 70%, #ff69b4, transparent),
+    radial-gradient(2px 2px at 40% 70%, #c0c0c0, transparent),
     radial-gradient(1px 1px at 50% 90%, #fff, transparent),
-    radial-gradient(2px 2px at 60% 10%, #ff69b4, transparent),
+    radial-gradient(2px 2px at 60% 10%, #e5e4e2, transparent),
     radial-gradient(1px 1px at 70% 30%, #fff, transparent),
-    radial-gradient(1px 1px at 80% 50%, #ff69b4, transparent),
+    radial-gradient(1px 1px at 80% 50%, #c0c0c0, transparent),
     radial-gradient(2px 2px at 90% 70%, #fff, transparent);
   background-size: 200px 200px;
   animation: glitterFall 8s linear infinite;
@@ -90,10 +92,11 @@ body {
 .mobile-container {
   width: 100%;
   max-width: 420px;
-  background-color: rgba(26, 26, 26, 0.9); 
-  border-left: 1px solid #333;
-  border-right: 1px solid #333;
-  box-shadow: 0 0 35px rgba(255, 105, 180, 0.5); 
+  background-color: rgba(22, 24, 29, 0.9); 
+  border-left: 1px solid #444;
+  border-right: 1px solid #444;
+  /* Resplandor metálico alrededor del contenedor */
+  box-shadow: 0 0 35px rgba(229, 228, 226, 0.3); 
   padding: 20px 15px;
   text-align: center;
   position: relative;
@@ -109,12 +112,13 @@ body {
   height: 170px;
   z-index: 1; 
   pointer-events: none;
-  filter: drop-shadow(0 0 15px rgba(255, 20, 147, 0.6));
+  /* Sombra cromo para la bola disco */
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
   animation: discoRotateGlow 4s ease-in-out infinite alternate;
 }
 
 /* ============================================================
-   4. TÍTULOS Y ANIMACIÓN DE LETRAS (CORREGIDO)
+   4. TÍTULOS Y ANIMACIÓN DE LETRAS
    ============================================================ */
 .title-happy,
 .title-birthday {
@@ -130,7 +134,8 @@ body {
   font-size: 2.2rem;
   letter-spacing: 2px;
   color: #fff;
-  text-shadow: 2px 2px #ff69b4;
+  /* Sombra de texto plateada */
+  text-shadow: 2px 2px #a3a3a3;
   margin-top: 10px;
 }
 
@@ -142,7 +147,6 @@ body {
   margin-bottom: 15px;
 }
 
-/* Forzar inline-block en los spans para permitir translateY y rotate */
 .title-happy span,
 .title-birthday span {
   display: inline-block !important;
@@ -163,21 +167,23 @@ body {
 
 .btn-rsvp {
   display: inline-block;
-  background: linear-gradient(45deg, #ff69b4, #da70d6);
-  color: #fff;
+  /* Degradado cromado metálico */
+  background: linear-gradient(135deg, #ffffff 0%, #b0b0b0 50%, #e0e0e0 100%);
+  color: #000; /* Texto oscuro para mejor contraste sobre botón plateado */
+  font-weight: bold;
   font-family: 'Permanent Marker', cursive;
   padding: 12px 25px;
   border-radius: 25px;
   text-decoration: none;
   font-size: 1.1rem;
-  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
   margin: 15px 0;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .btn-rsvp:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.6);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.6);
 }
 
 .profiles-container {
@@ -200,7 +206,7 @@ body {
 .profile-age {
   font-size: 1.1rem;
   font-weight: bold;
-  color: #ff69b4;
+  color: #d1d5db;
 }
 
 .profile-img-wrapper {
@@ -208,18 +214,19 @@ body {
   margin-top: 10px;
 }
 
-
 .profile-img {
   width: 100%;
   height: 260px;
   object-fit: cover;
   border-radius: 8px;
+  border: 1px solid #4b5563;
 }
 
 hr.divider {
   border: 0;
   height: 1px;
-  background: linear-gradient(to right, transparent, #ff69b4, transparent);
+  /* Divisor con degradado en plata destellante */
+  background: linear-gradient(to right, transparent, #e5e4e2, transparent);
   margin: 30px 0;
 }
 
@@ -237,7 +244,7 @@ hr.divider {
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 10px;
-  border: 2px solid #555;
+  border: 2px solid #666;
 }
 
 .map-box iframe {
@@ -247,7 +254,7 @@ hr.divider {
 }
 
 .btn-link {
-  color: #ff69b4;
+  color: #e5e4e2;
   font-family: 'Permanent Marker', cursive;
   text-decoration: underline;
   font-size: 1.2rem;
@@ -265,16 +272,16 @@ hr.divider {
 }
 
 .player-card {
-  background-color: #222;
+  background-color: #1a1a1e;
   border-radius: 12px;
   padding: 15px;
   margin: 20px 0;
-  border: 1px solid #444;
+  border: 1px solid #4b5563;
 }
 
 .player-title {
   font-size: 0.9rem;
-  color: #aaa;
+  color: #9ca3af;
 }
 
 .player-controls {
@@ -296,7 +303,7 @@ hr.divider {
 .play-btn {
   width: 45px;
   height: 45px;
-  background-color: #fff;
+  background: linear-gradient(135deg, #ffffff, #a3a3a3);
   color: #000;
   border-radius: 50%;
   border: none;
@@ -315,13 +322,13 @@ hr.divider {
 .qr-box {
   width: 180px;
   height: 180px;
-  border: 3px dashed #ff69b4;
+  border: 3px dashed #e5e4e2;
   border-radius: 12px;
   margin: 15px auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #222;
+  background-color: #111;
 }
 
 .qr-box img {
@@ -337,17 +344,19 @@ hr.divider {
   margin: 15px 0;
 }
 
+/* Cambiado de rosa a destacado plateado/platino */
 .highlight-pink {
-  color: #ff69b4;
+  color: #e5e4e2;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
 }
 
 /* ============================================================
    6. ANIMACIONES (@KEYFRAMES)
    ============================================================ */
 @keyframes cosmicPulse {
-  0% { background-color: #070507; opacity: 0.4; }
-  50% { background-color: #020102; opacity: 0.6; }
-  100% { background-color: #070207; opacity: 0.3; }
+  0% { background-color: #08080a; opacity: 0.4; }
+  50% { background-color: #1a1c23; opacity: 0.6; }
+  100% { background-color: #0d0e12; opacity: 0.3; }
 }
 
 @keyframes starsFall {
@@ -363,11 +372,11 @@ hr.divider {
 @keyframes discoRotateGlow {
   0% {
     transform: rotate(-5deg) scale(1);
-    filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.5));
+    filter: drop-shadow(0 0 10px rgba(229, 228, 226, 0.5));
   }
   100% {
     transform: rotate(5deg) scale(1.03);
-    filter: drop-shadow(0 0 22px rgba(255, 20, 147, 0.9));
+    filter: drop-shadow(0 0 22px rgba(255, 255, 255, 0.9));
   }
 }
 
@@ -385,22 +394,23 @@ hr.divider {
     transform: translateY(-8px) rotate(-2deg);
   }
 }
+
 /* ============================================================
-   CONTADOR REGRESIVO (COUNTDOWN Y2K)
+   CONTADOR REGRESIVO (COUNTDOWN Y2K - SILVER EDITION)
    ============================================================ */
 .countdown-container {
-  background: rgba(20, 20, 20, 0.8);
-  border: 2px dashed #ff69b4;
+  background: rgba(15, 15, 18, 0.85);
+  border: 2px dashed #c0c0c0;
   border-radius: 12px;
   padding: 12px 10px;
   margin: 15px 0 20px 0;
-  box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+  box-shadow: 0 0 15px rgba(225, 225, 225, 0.2);
 }
 
 .countdown-title {
   font-family: 'Permanent Marker', cursive;
   font-size: 0.95rem;
-  color: #ff69b4;
+  color: #e5e4e2;
   letter-spacing: 1.5px;
   margin-bottom: 8px;
 }
@@ -413,15 +423,15 @@ hr.divider {
 }
 
 .time-card {
-  background: #000;
-  border: 1px solid #444;
+  background: #050507;
+  border: 1px solid #4b5563;
   border-radius: 6px;
   padding: 6px 8px;
   min-width: 55px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: inset 0 0 8px rgba(255, 105, 180, 0.2);
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.15);
 }
 
 .time-card span {
@@ -429,21 +439,21 @@ hr.divider {
   font-size: 1.5rem;
   font-weight: bold;
   color: #fff;
-  text-shadow: 0 0 5px #ff69b4;
+  text-shadow: 0 0 5px #e5e4e2;
   line-height: 1;
 }
 
 .time-card small {
   font-family: 'Permanent Marker', cursive;
   font-size: 0.65rem;
-  color: #aaa;
+  color: #9ca3af;
   margin-top: 4px;
 }
 
 .time-colon {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #ff69b4;
+  color: #e5e4e2;
   animation: colonBlink 1s infinite;
 }
 
